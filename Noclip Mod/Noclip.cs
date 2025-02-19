@@ -20,6 +20,19 @@ public class Noclip
             if ((PInvoke.User32.WindowMessage)inputHookClientNativeMessage.Type == PInvoke.User32.WindowMessage.WM_KEYUP)
             {
                 noclipEnabled = !noclipEnabled;
+
+                var player = FetchPlayerEntity();
+
+                CharacterMoverComponent.NativeHandle characterMover = FetchCharacterMover(player);
+
+                if (characterMover != nint.Zero)
+                {
+                    if (!noclipEnabled)
+                    {
+                        characterMover.GravityOn = true;
+                    }
+                }
+
                 return true;
             }
         }
@@ -96,7 +109,28 @@ public class Noclip
         return false;
     }
 
-    ApiEntity.NativeHandle FetchPlayerEntity()
+    static CharacterMoverComponent.NativeHandle FetchCharacterMover(ApiEntity.NativeHandle entity)
+    {
+        GTObject.NativeHandle GTObject = FetchGTObject(entity);
+
+        if (GTObject == nint.Zero)
+        {
+            return (CharacterMoverComponent.NativeHandle)nint.Zero;
+        }
+        else
+        {
+            return GTObject.GetCharacterMoverComponent();
+        }
+    }
+
+    static GTObject.NativeHandle FetchGTObject(ApiEntity.NativeHandle entity)
+    {
+        GTObject.NativeHandle gtObject = (GTObject.NativeHandle)entity.FindComponent("GTObject");
+
+        return gtObject;
+    }
+
+    static ApiEntity.NativeHandle FetchPlayerEntity()
     {
         var currentApiWorld = V1.GetCApi1CurrentApiWorld();
 
@@ -176,8 +210,15 @@ public class Noclip
             }
         }
         else
-        {
+        {            
             SetEntityPosition(player, X, Y, Z);
+
+            CharacterMoverComponent.NativeHandle characterMover = FetchCharacterMover(player);
+
+            if (characterMover != nint.Zero)
+            {
+                characterMover.GravityOn = false;
+            }
         }
 
         lastFrameTime = DateTime.Now;

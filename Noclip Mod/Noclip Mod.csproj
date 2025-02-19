@@ -28,9 +28,6 @@
     <Reference Include="omp-lswtss-v1">
       <HintPath>D:\OMP\omp-lswtss-jubjub\dist\v1\omp-lswtss-v1.dll</HintPath>
     </Reference>
-    <Reference Include="omp-lswtss-v1-manager">
-      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\v1\omp-lswtss-v1-manager.dll</HintPath>
-    </Reference>
     <Reference Include="PInvoke.User32">
       <HintPath>D:\OMP\omp-lswtss-jubjub\dist\input-hook1\PInvoke.User32.dll</HintPath>
     </Reference>
