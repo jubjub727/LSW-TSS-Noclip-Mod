@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Noclip_Mod</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AssemblyName>noclip</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="omp-lswtss-c-api1-core">
+      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\c-api1\omp-lswtss-c-api1-core.dll</HintPath>
+    </Reference>
+    <Reference Include="omp-lswtss-c-api1-main">
+      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\c-api1\omp-lswtss-c-api1-main.dll</HintPath>
+    </Reference>
+    <Reference Include="omp-lswtss-c-api1-manager">
+      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\c-api1\omp-lswtss-c-api1-manager.dll</HintPath>
+    </Reference>
+    <Reference Include="omp-lswtss-c-func-hook1">
+      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\c-func-hook1\omp-lswtss-c-func-hook1.dll</HintPath>
+    </Reference>
+    <Reference Include="omp-lswtss-input-hook1">
+      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\input-hook1\omp-lswtss-input-hook1.dll</HintPath>
+    </Reference>
+    <Reference Include="omp-lswtss-v1">
+      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\v1\omp-lswtss-v1.dll</HintPath>
+    </Reference>
+    <Reference Include="omp-lswtss-v1-manager">
+      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\v1\omp-lswtss-v1-manager.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.User32">
+      <HintPath>D:\OMP\omp-lswtss-jubjub\dist\input-hook1\PInvoke.User32.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
